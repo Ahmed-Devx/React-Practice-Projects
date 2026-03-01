@@ -9,7 +9,6 @@ function App() {
 
   const calculate = () => {
     try {
-      // eval() ki jagah Function() constructor zyada behtar/safe hai
       const result = new Function(`return ${inputValue}`)();
       setInputValue(String(result));
     } catch (error) {
@@ -20,7 +19,6 @@ function App() {
 
   const clear = () => setInputValue("");
 
-  // Button Component for cleaner code
   const CalcButton = ({ label, onClick, className = "" }) => (
     <button
       type="button"
@@ -34,7 +32,6 @@ function App() {
   return (
     <div className="min-h-screen bg-neutral-950 flex items-center justify-center p-4">
       <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-[2.5rem] shadow-2xl w-full max-w-[340px]">
-        {/* Display Screen */}
         <div className="mb-6 p-4 text-right">
           <div className="text-neutral-500 text-sm h-6 overflow-hidden uppercase tracking-widest">
             {inputValue ? "Calculating..." : "Ready"}
@@ -44,9 +41,7 @@ function App() {
           </div>
         </div>
 
-        {/* Buttons Grid */}
         <div className="grid grid-cols-4 gap-3">
-          {/* Row 1 */}
           <CalcButton
             label="C"
             onClick={clear}
@@ -63,7 +58,6 @@ function App() {
             className="bg-orange-500/10 text-orange-500 hover:bg-orange-500 hover:text-white"
           />
 
-          {/* Row 2 */}
           <CalcButton
             label="7"
             onClick={() => display("7")}
@@ -85,7 +79,6 @@ function App() {
             className="bg-orange-500/10 text-orange-500 hover:bg-orange-500 hover:text-white"
           />
 
-          {/* Row 3 */}
           <CalcButton
             label="4"
             onClick={() => display("4")}
@@ -107,7 +100,6 @@ function App() {
             className="bg-orange-500/10 text-orange-500 hover:bg-orange-500 hover:text-white"
           />
 
-          {/* Row 4 */}
           <CalcButton
             label="1"
             onClick={() => display("1")}
@@ -129,7 +121,6 @@ function App() {
             className="bg-orange-500 text-white hover:bg-orange-600 shadow-lg shadow-orange-500/20 row-span-2 h-full"
           />
 
-          {/* Row 5 */}
           <CalcButton
             label="0"
             onClick={() => display("0")}
